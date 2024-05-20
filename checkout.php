@@ -13,7 +13,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -136,7 +136,7 @@
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                                 <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="./cart.php" class="dropdown-item">Shopping Cart</a>
+                                    <a href="../cart.php" class="dropdown-item">Shopping Cart</a>
                                     <a href="./checkout.php" class="dropdown-item">Checkout</a>
                                 </div>
                             </div>
@@ -229,7 +229,7 @@
                         <div class="col-md-12 form-group">
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="shipto">
-                                <label class="custom-control-label" for="shipto"  data-toggle="collapse" data-target="#shipping-address">Ship to different address</label>
+                                <label class="custom-control-label" for="shipto" data-toggle="collapse" data-target="#shipping-address">Ship to different address</label>
                             </div>
                         </div>
                     </div>
@@ -293,21 +293,20 @@
                     <div class="card-body">
                         <h5 class="font-weight-medium mb-3">Sản Phẩm</h5>
                         <?php
-                        
+
                         require_once("./php/lib.php");
-                        $products =getListData("cart");
-                        $count =0;
-                        $tong =0;
-                        $ship=50000;
-                        foreach($products as $p)
-                        {
-                            $tong = $tong +($p["dongia"]*$p["soluong"]);
-                            $count = $count+1;
+                        $products = getListData("cart");
+                        $count = 0;
+                        $tong = 0;
+                        $ship = 50000;
+                        foreach ($products as $p) {
+                            $tong = $tong + ($p["dongia"] * $p["soluong"]);
+                            $count = $count + 1;
                         ?>
-                        <div class="d-flex justify-content-between">
-                            <p><?=$count?>.<?=$p["tensanpham"]?></p>
-                            <p><?=($p["dongia"]*$p["soluong"])?>đ</p>
-                        </div>
+                            <div class="d-flex justify-content-between">
+                                <p><?= $count ?>.<?= $p["tensanpham"] ?></p>
+                                <p><?= ($p["dongia"] * $p["soluong"]) ?>đ</p>
+                            </div>
                         <?php
                         }
                         ?>
@@ -315,17 +314,17 @@
                         <hr class="mt-0">
                         <div class="d-flex justify-content-between mb-3 pt-1">
                             <h6 class="font-weight-medium">Subtotal</h6>
-                            <h6 class="font-weight-medium"><?=$tong?>đ</h6>
+                            <h6 class="font-weight-medium"><?= $tong ?>đ</h6>
                         </div>
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-medium">Shipping</h6>
-                            <h6 class="font-weight-medium"><?=$ship?>đ</h6>
+                            <h6 class="font-weight-medium"><?= $ship ?>đ</h6>
                         </div>
                     </div>
                     <div class="card-footer border-secondary bg-transparent">
                         <div class="d-flex justify-content-between mt-2">
                             <h5 class="font-weight-bold">Total</h5>
-                            <h5 class="font-weight-bold"><?=($tong+$ship)?>đ</h5>
+                            <h5 class="font-weight-bold"><?= ($tong + $ship) ?>đ</h5>
                         </div>
                     </div>
                 </div>
@@ -363,8 +362,8 @@
     <!-- Checkout End -->
 
 
-  <!-- Footer Start -->
-  <div class="container-fluid bg-secondary text-dark mt-5 pt-5">
+    <!-- Footer Start -->
+    <div class="container-fluid bg-secondary text-dark mt-5 pt-5">
         <div class="row px-xl-5 pt-5">
             <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
                 <a href="" class="text-decoration-none">
@@ -378,12 +377,12 @@
             <div class="col-lg-8 col-md-12">
                 <div class="row">
                     <div class="col-md-4 mb-5">
-                    <h5 class="font-weight-bold text-dark mb-4">Quick Links</h5>
+                        <h5 class="font-weight-bold text-dark mb-4">Quick Links</h5>
                         <div class="d-flex flex-column justify-content-start">
                             <a class="text-dark mb-2" href="./index.php"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                            <a class="text-dark mb-2" href="./main_page.php" ><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
+                            <a class="text-dark mb-2" href="./main_page.php"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
                             <a class="text-dark mb-2" href="./detail.php"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
-                            <a class="text-dark mb-2" href="./cart.php"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
+                            <a class="text-dark mb-2" href="../cart.php"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
                             <a class="text-dark mb-2" href="./checkout.php"><i class="fa fa-angle-right mr-2"></i>Checkout</a>
                             <a class="text-dark" href="./contact.php"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
                         </div>
@@ -392,9 +391,9 @@
                         <h5 class="font-weight-bold text-dark mb-4">Quick Links</h5>
                         <div class="d-flex flex-column justify-content-start">
                             <a class="text-dark mb-2" href="./index.php"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                            <a class="text-dark mb-2" href="./main_page.php" ><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
+                            <a class="text-dark mb-2" href="./main_page.php"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
                             <a class="text-dark mb-2" href="./detail.php"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
-                            <a class="text-dark mb-2" href="./cart.php"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
+                            <a class="text-dark mb-2" href="../cart.php"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
                             <a class="text-dark mb-2" href="./checkout.php"><i class="fa fa-angle-right mr-2"></i>Checkout</a>
                             <a class="text-dark" href="./contact.php"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
                         </div>

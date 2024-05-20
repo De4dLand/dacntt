@@ -81,7 +81,7 @@
                     <i class="fas fa-heart text-primary"></i>
                     <span class="badge">0</span>
                 </a>
-                <a href="./cart.php" class="btn border">
+                <a href="cart.php" class="btn border">
                     <i class="fas fa-shopping-cart text-primary"></i>
                     <span class="badge">
                         <?php
@@ -142,7 +142,7 @@
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                                 <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="./cart.php" class="dropdown-item">Shopping Cart</a>
+                                    <a href="../cart.php" class="dropdown-item">Shopping Cart</a>
                                     <a href="./checkout.php" class="dropdown-item">Checkout</a>
                                 </div>
                             </div>
@@ -300,7 +300,7 @@
                             <div class="card-footer d-flex justify-content-between bg-light border">
                                 <a href="detail.php?id=<?= $p["id"] ?>" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
                                 <form action="./php/addtocart.php" method="post">
-                                    <button class="btn btn-primary px-3" type="sumit" name="addtocart" id="addtocart" onclick="addtocart($p[" id"],1)">
+                                    <button class="btn btn-primary px-3" type="sumit" name="addtocart" id="addtocart">
                                         <a href="./php/addtocart.php?id=<?= $p["id"] ?>&soluong=1" class="btn btn-sm text-dark p-0"> <i class="fa fa-shopping-cart mr-1"></i> Add To Cart</a>
                                     </button>
                                 </form>

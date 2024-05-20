@@ -180,8 +180,8 @@
                     </div>
                     <form action="./php/addtocart.php" method="post">
                         <button class="btn btn-primary px-3" type="sumit" name="addtocart" id="addtocart">
-                        <a href="./php/addtocart.php?id=<?=$p["id"]?>&soluong=1" class="btn btn-sm text-dark p-0" > <i class="fa fa-shopping-cart mr-1"></i>
-                         Add To Cart</a>
+                            <a href="./php/addtocart.php?id=<?= $p["id"] ?>&soluong=1" class="btn btn-sm text-dark p-0"> <i class="fa fa-shopping-cart mr-1"></i>
+                                Add To Cart</a>
                         </button>
                     </form>
 
@@ -339,7 +339,7 @@
                             <a class="text-dark mb-2" href="./index.php"><i class="fa fa-angle-right mr-2"></i>Home</a>
                             <a class="text-dark mb-2" href="./main_page.php"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
                             <a class="text-dark mb-2" href="./detail.php"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
-                            <a class="text-dark mb-2" href="./cart.php"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
+                            <a class="text-dark mb-2" href="../cart.php"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
                             <a class="text-dark mb-2" href="./checkout.php"><i class="fa fa-angle-right mr-2"></i>Checkout</a>
                             <a class="text-dark" href="./contact.php"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
                         </div>
@@ -350,7 +350,7 @@
                             <a class="text-dark mb-2" href="./index.php"><i class="fa fa-angle-right mr-2"></i>Home</a>
                             <a class="text-dark mb-2" href="./main_page.php"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
                             <a class="text-dark mb-2" href="./detail.php"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
-                            <a class="text-dark mb-2" href="./cart.php"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
+                            <a class="text-dark mb-2" href="../cart.php"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
                             <a class="text-dark mb-2" href="./checkout.php"><i class="fa fa-angle-right mr-2"></i>Checkout</a>
                             <a class="text-dark" href="./contact.php"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
                         </div>
