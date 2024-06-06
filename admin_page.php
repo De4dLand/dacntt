@@ -23,6 +23,14 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <style>
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -90,40 +98,33 @@
     </div>
     <!-- Topbar End -->
 
-
     <!-- Navbar Start -->
     <div class="container-fluid">
         <div class="row border-top px-xl-5">
-            <div class="col-lg-3 d-none d-lg-block">
+            <div class="col-lg-3 d-lg-block">
                 <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
-                    <h6 class="m-0">Categories</h6>
+                    <h6 class="m-0">Thiết Lập Kho hàng</h6>
                     <i class="fa fa-angle-down text-dark"></i>
                 </a>
                 <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 1;">
-                    <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
-                        <div class="nav-item dropdown">
+                    <div class="navbar-nav w-100 overflow-hidden">
+                        <!-- <div class="nav-item dropdown">
                             <a href="#" class="nav-link" data-toggle="dropdown">Dresses <i class="fa fa-angle-down float-right mt-1"></i></a>
                             <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
                                 <a href="" class="dropdown-item">Men's Dresses</a>
                                 <a href="" class="dropdown-item">Women's Dresses</a>
                                 <a href="" class="dropdown-item">Baby's Dresses</a>
                             </div>
-                        </div>
-                        <a href="" class="nav-item nav-link">Shirts</a>
-                        <a href="" class="nav-item nav-link">Jeans</a>
-                        <a href="" class="nav-item nav-link">Swimwear</a>
-                        <a href="" class="nav-item nav-link">Sleepwear</a>
-                        <a href="" class="nav-item nav-link">Sportswear</a>
-                        <a href="" class="nav-item nav-link">Jumpsuits</a>
-                        <a href="" class="nav-item nav-link">Blazers</a>
-                        <a href="" class="nav-item nav-link">Jackets</a>
-                        <a href="" class="nav-item nav-link">Shoes</a>
+                        </div> -->
+                        <button class="tablinks" onclick="openTable(event, 'Product')">Sản Phẩm</button>
+                        <button class="tablinks" onclick="openTable(event, 'Category')">Loại Sản Phẩm</button>
+                        <button class="tablinks" onclick="openTable(event, 'New')">New Tab</button>
                     </div>
                 </nav>
             </div>
             <div class="col-lg-9">
                 <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
-                    <a href="" class="text-decoration-none d-block d-lg-none">
+                    <a href="./index.php" class="text-decoration-none d-block d-lg-none">
                         <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
                     </a>
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -131,17 +132,17 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="index.html" class="nav-item nav-link">Home</a>
-                            <a href="shop.html" class="nav-item nav-link">Shop</a>
-                            <a href="detail.html" class="nav-item nav-link">Shop Detail</a>
+
+                            <a href="./index.php" class="nav-item nav-link active">Home</a>
+                            <a href="./main_page.php" class="nav-item nav-link">Shop</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                                 <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="cart.html" class="dropdown-item">Shopping Cart</a>
-                                    <a href="checkout.html" class="dropdown-item">Checkout</a>
+                                    <a href="../cart.php" class="dropdown-item">Shopping Cart</a>
+                                    <a href="./checkout.php" class="dropdown-item">Checkout</a>
                                 </div>
                             </div>
-                            <a href="contact.html" class="nav-item nav-link active">Contact</a>
+                            <a href="contact.html" class="nav-item nav-link">Contact</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0">
                             <a href="" class="nav-item nav-link">Login</a>
@@ -155,140 +156,228 @@
     <!-- Navbar End -->
 
 
-    <!-- Page Header Start -->
-    <div class="container-fluid bg-secondary mb-5">
-        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
-            <h1 class="font-weight-semi-bold text-uppercase mb-3">Admin</h1>
-        </div>
-    </div>
-    <!-- Page Header End -->
-
 
     <!-- Admin Start -->
     <div class="container-fluid pt-5">
         <div class="text-center mb-4">
-            <h2 class="section-title px-5"><span class="px-2">Bảng Nhập dữ liệu cửa hàng
-                </span></h2>
+            <h2 class="section-title px-5"><span class="px-2">Bảng Nhập dữ liệu cửa hàng</span></h2>
         </div>
-        <div class="row px-xl-5">
-            <div class="col-lg-4 mb-5">
-                <div class="product-form">
-                    <div id="success"></div>
-                    <form novalidate="novalidate" action="./php/XuLyDuLieu.php" method="post" enctype="multipart/form-data">
-                        <div class="control-group">
-                            <p>Mã Sản Phẩm
-                                <input type="text" class="form-control" id="masanpham" name="masanpham" placeholder="Mã Sản Phẩm" required="required" data-validation-required-message="Phải Nhập Mã Sản Phẩm" />
-                            </p>
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="control-group">
-                            <p>Tên Sản Phẩm
-                                <input type="text" class="form-control" id="tensanpham" name="tensanpham" placeholder="Tên Sản Phẩm" required="required" data-validation-required-message="Hãy Nhập Tên Sản Phẩm" />
-                            </p>
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="control-group">
-                            <p>Loại Sản Phẩm
-                                <input type="text" class="form-control" id="loaisanpham" name="loaisanpham" placeholder="Loại Sản Phẩm" required="required" data-validation-required-message="Hãy Nhập Loại Sản Phẩm" />
-                            </p>
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="control-group">
-                            <p>Mô Tả Sản Phẩm
-                                <input class="form-control" rows="6" id="motasanpham" name="motasanpham" placeholder="Mô Tả Chi Tiết Sản Phẩm" required="required" data-validation-required-message="Hãy Nhập Mô Tả Chi Tiết Sản Phẩm"></input>
-                            </p>
-                            <p class="help-block text-danger"></p>
-                        </div>
+        <div class="row px-xl-5 flex-column">
+            <div id="Product" class="tabcontent" style="display:block">
+                <div class="d-flex">
+                    <div class="product-form d-flex col-lg-4 mb-5">
+                        <div id="success">
 
-                        <div class="control-group">
-                            <p>Đơn Giá
-                                <input type="int" class="form-control" id="dongia" name="dongia" placeholder="Đơn Giá (đơn vị :đ)" required="required" data-validation-required-message="Phải Nhập Đơn Giá" />
-                            </p>
-                            <p class="help-block text-danger"></p>
                         </div>
-                        <div class="control-group">
-                            <p>Hình Ảnh Sản Phẩm
-                                <input type="text" class="form-control" id="imageurl" name="imageurl" placeholder="Hình Ảnh sản Phẩm" required="required" data-validation-required-message="" />
-                            </p>
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="control-group">
-                            <p>Số Lượng
+                        <form novalidate="novalidate" action="./php/XuLyDuLieu.php" method="post" enctype="multipart/form-data">
+                            <div class="control-group d-none">
+                                <p>Bảng
+                                    <input type="text" class="form-control" id="table" name="table" placeholder="Tên Sản Phẩm" value="tbProduct" required="required" data-validation-required-message="Hãy Nhập Tên Sản Phẩm" />
+                                </p>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <p>Tên Sản Phẩm
+                                    <input type="text" class="form-control" id="ProName" name="ProName" placeholder="Tên Sản Phẩm" required="required" data-validation-required-message="Hãy Nhập Tên Sản Phẩm" />
+                                </p>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <p>Hình Ảnh Sản Phẩm
+                                    <input type="text" class="form-control" id="ProImage" name="ProImage" placeholder="Hình Ảnh sản Phẩm" required="required" data-validation-required-message="" />
+                                </p>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <p>Đơn Giá
+                                    <input type="int" class="form-control" id="Price" name="Price" placeholder="Đơn Giá (đơn vị :đ)" required="required" data-validation-required-message="Phải Nhập Đơn Giá" />
+                                </p>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <p>Mô Tả Sản Phẩm
+                                    <input class="form-control" rows="6" id="Description" name="Description" placeholder="Mô Tả Chi Tiết Sản Phẩm" required="required" data-validation-required-message="Hãy Nhập Mô Tả Chi Tiết Sản Phẩm"></input>
+                                </p>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <p> Mã Loại Sản Phẩm
+                                    <select name="CatID" id="CatID">
+                                        <option value="0">Chọn nhóm SP</option>
+                                        <?php
+                                        require("./php/lib.php");
+                                        $rows = getListData("tbCategory");
+                                        foreach ($rows as $row) {
+                                        ?>
+                                            <option value="<?= $row["CatID"] ?>"><?= $row["CatName"] ?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>
+                                </p>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <!-- <div class="control-group">
+                            <p>Trạng thái
                                 <input type="int" class="form-control" id="soluong" name="soluong" placeholder="Số Lượng" required="required" data-validation-required-message="Hãy Nhập số lượng sản phẩm" />
                             </p>
                             <p class="help-block text-danger"></p>
-                        </div>
-                        <div>
-                            <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton" name="nhapdulieu" id="nhapdulieu">Nhập Dữ Liệu</button>
-                        </div>
-                    </form>
+                        </div> -->
+                            <div>
+                                <button class="btn btn-primary py-2 px-4" type="submit" name="nhapdulieu" id="nhapdulieu">Nhập Dữ Liệu</button>
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="col-lg-8 mb-5">
+                        <h5 class="font-weight-semi-bold mb-3">Bảng Dữ Liệu Hiện Tại</h5>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Tên Sản Phẩm</th>
+                                    <th scope="col">Hình Ảnh Sản Phẩm</th>
+                                    <th scope="col">Đơn Giá</th>
+                                    <th scope="col">Mô Tả Sản Phẩm</th>
+                                    <th scope="col">Loại Sản Phẩm</th>
+                                    <th scope="col">Chức năng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                require_once("./php/lib.php");
+                                $products = getProductData();
+                                $i = 0;
+                                foreach ($products as $p) {
+                                    $hinhanh = ($p["ProImage"] == "") ? "./img/no-image.png" : $p["ProImage"];
+                                    $i++;
+                                ?>
+                                    <tr height="30">
+                                        <td>
+                                            <?= $i ?>
+                                        </td>
+                                        <td>
+                                            <?= $p["ProName"] ?>
+                                        </td>
+                                        <td class="align-content-center"><img src="<?= $hinhanh ?>" width="80"></td>
+                                        <td>
+                                            <?= $p["Price"] ?>
+                                        </td>
+                                        <td>
+                                            <?= $p["Description"] ?>
+                                        </td>
+                                        <!-- <td>
+                                    <?= $p["status"] ?>
+                                </td> -->
+                                        <td>
+                                            <?= $p["CatName"] ?>
+                                        </td>
+                                        <td>
+                                            <a href="Suadulieu.php?id=<?= $p["ProID"] ?>">Sửa</a>
+                                            <a href="./php/deleteItem.php?id=<?= $p["ProID"] ?>" onclick="return confirm('Chắc chắn xóa?');">Xóa</a>
+                                        </td>
+                                    </tr>
+                                <?php
+                                }
+                                ?>
+                        </table>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-8 mb-5">
-                <h5 class="font-weight-semi-bold mb-3">Bảng Dữ Liệu Hiện Tại</h5>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Mã Sản Phẩm</th>
-                            <th scope="col">Tên Sản Phẩm</th>
-                            <th scope="col">Loại Sản Phẩm</th>
-                            <th scope="col">Mô Tả Sản Phẩm</th>
-                            <th scope="col">Hình Ảnh Sản Phẩm</th>
-                            <th scope="col">Đơn Giá</th>
-                            <th scope="col">Số lượng</th>
-                            <th scope="col">Chức năng</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        require_once("./php/lib.php");
-                        $products = getListData("book");
-                        foreach ($products as $p) {
-                            $hinhanh = ($p["url_img"] == "") ? "./img/no-image.png" : $p["url_img"];
-                        ?>
-                            <tr height="30">
-                                <td>
-                                    <?= $p["id"] ?>
-                                </td>
-                                <td>
-                                    <?= $p["masanpham"] ?>
-                                </td>
-                                <td>
-                                    <?= $p["tensanpham"] ?>
-                                </td>
-                                <td>
-                                    <?= $p["loaisanpham"] ?>
-                                </td>
-                                <td>
-                                    <?= $p["motasanpham"] ?>
-                                </td>
-                                <td class="align-content-center"><img src="<?= $hinhanh ?>" width="80"></td>
-                                <td>
-                                    <?= $p["dongia"] ?>
-                                </td>
-                                <td>
-                                    <?= $p["soluong"] ?>
-                                </td>
-                                <td>
-                                    <a href="Suadulieu.php?id=<?= $p["id"] ?>">Sửa</a>
-                                    <a href="./php/deleteItem.php?id=<?= $p["id"] ?>" onclick="return confirm('Chắc chắn xóa?');">Xóa</a>
-                                </td>
-                            </tr>
-                        <?php
+            <div id="Category" class="tabcontent">
+                <div class="d-flex">
+                    <div class="product-form d-flex">
+                        <div class=" col-lg-4 mb-5 ">
+                            <form novalidate="novalidate" action="./php/XuLyDuLieu.php" method="post" enctype="multipart/form-data">
+                                <div class="control-group d-none">
+                                    <p>Bảng Nhóm
+                                        <input type="text" class="form-control" id="table" name="table" placeholder="Tên Sản Phẩm" value="tbCategory" required="required" data-validation-required-message="Hãy Nhập Tên Sản Phẩm" />
+                                    </p>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="control-group">
+                                    <p>Loại Sản Phẩm
+                                        <input type="text" class="form-control" id="CatName" name="CatName" placeholder="Nhóm Sản Phẩm" required="required" data-validation-required-message="Hãy Nhập Tên Nhóm Sản Phẩm" />
+                                    </p>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+
+                                <!-- <div class="control-group">
+                            <p>Trạng thái
+                                <input type="int" class="form-control" id="soluong" name="soluong" placeholder="Số Lượng" required="required" data-validation-required-message="Hãy Nhập số lượng sản phẩm" />
+                            </p>
+                            <p class="help-block text-danger"></p>
+                        </div> -->
+                                <div>
+                                    <button class="btn btn-primary py-2 px-4" type="submit" name="nhapdulieu" id="nhapdulieu">Nhập Dữ Liệu</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-lg-8 mb-5">
+                            <h5 class="font-weight-semi-bold mb-3">Bảng Dữ Liệu Hiện Tại</h5>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Loại Sản Phẩm</th>
+                                        <th scope="col">Trạng Thái</th>
+                                        <th scope="col">Chức năng</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    require_once("./php/lib.php");
+                                    $products = getListData('tbCategory');
+                                    $i = 0;
+                                    foreach ($products as $p) {
+                                        $i++;
+                                    ?>
+                                        <tr height="30">
+                                            <td>
+                                                <?= $i ?>
+                                            </td>
+                                            <td>
+                                                <?= $p["CatName"] ?>
+                                            </td>
+                                            <td>
+                                                <?= $p["status"] ?>
+                                            </td>
+                                            <td>
+                                                <a href="SuaNhomSP.php?id=<?= $p["CatID"] ?>">Sửa</a>
+                                                <a href="./php/deleteCategory.php?id=<?= $p["CatID"] ?>" onclick="return confirm('Chắc chắn xóa?');">Xóa</a>
+                                            </td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    ?>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    function openTable(evt, tableName) {
+                        var i, tabcontent, tablinks;
+                        tabcontent = document.getElementsByClassName("tabcontent");
+                        for (i = 0; i < tabcontent.length; i++) {
+                            tabcontent[i].style.display = "none";
                         }
-                        ?>
-                </table>
+                        tablinks = document.getElementsByClassName("tablinks");
+                        for (i = 0; i < tablinks.length; i++) {
+                            tablinks[i].className = tablinks[i].className.replace(" active", "");
+                        }
+                        document.getElementById(tableName).style.display = "block";
+                        evt.currentTarget.className += " active";
+                    }
+                </script>
             </div>
         </div>
-    </div>
 
 
-    <!-- Admin End -->
+        <!-- Admin End -->
 
 
-    <!-- Footer Start -->
-    <div class="container-fluid bg-secondary text-dark mt-5 pt-5">
+        <!-- Footer Start -->
+        <!-- <div class="container-fluid bg-secondary text-dark mt-5 pt-5">
         <div class="row px-xl-5 pt-5">
             <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
                 <a href="" class="text-decoration-none">
@@ -352,26 +441,26 @@
                 <img class="img-fluid" src="img/payments.png" alt="">
             </div>
         </div>
-    </div>
-    <!-- Footer End -->
+    </div> -->
+        <!-- Footer End -->
 
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
+        <!-- Contact Javascript File -->
+        <script src="mail/jqBootstrapValidation.min.js"></script>
+        <script src="mail/contact.js"></script>
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
 </body>
 
 </html>

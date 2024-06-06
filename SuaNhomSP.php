@@ -110,52 +110,23 @@
                     <?php
                     $id = $_REQUEST["id"]; //lấy id sản phẩm cần sửa từ link
                     require("./php/lib.php");
-                    $sanpham = getDataByID($id, "tbProduct");
+                    $sanpham = getDataByID($id, "tbCategory");
                     if ($sanpham === FALSE)
                         die("<h3>LỖI SQL</h3>");
                     if ($sanpham === NULL)
                         die("<h3>KHÔNG TÌM THẤY SẢN PHẨM</h3>");
                     ?>
-                    <form novalidate="novalidate" action="./php/XuLySuaSP.php" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="ProID" value="<?= $sanpham["ProID"] ?>">
+                    <form novalidate="novalidate" action="./php/XuLySuaNhomSP.php" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="CatID" value="<?= $sanpham["CatID"] ?>">
                         <div class="control-group" type="hidden">
-                            <p>Mã Sản Phẩm:<input type="text" class="form-control" id="ProID" name="ProID" placeholder="Mã Sản Phẩm" value="<?= $sanpham["ProID"] ?>" required="required" data-validation-required-message="Phải Nhập Mã Sản Phẩm" /></p>
+                            <p>Mã Nhóm Sản Phẩm:<input type="text" class="form-control" id="CatID" name="CatID" placeholder="Mã Nhóm Sản Phẩm" value="<?= $sanpham["CatID"] ?>" required="required" data-validation-required-message="Phải Nhập Mã Sản Phẩm" /></p>
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="control-group">
-                            <p>Tên Sản Phẩm:<input type="text" class="form-control" id="ProName" name="ProName" placeholder="Tên Sản Phẩm" value="<?= $sanpham["ProName"] ?>" required="required" data-validation-required-message="Hãy Nhập Tên Sản Phẩm" /></p>
+                            <p>Tên Nhóm Sản Phẩm:<input type="text" class="form-control" id="CatName" name="CatName" placeholder="Tên Sản Phẩm" value="<?= $sanpham["CatName"] ?>" required="required" data-validation-required-message="Hãy Nhập Tên Sản Phẩm" /></p>
                             <p class="help-block text-danger"></p>
                         </div>
-                        <div class="control-group">
-                            <p>Loại Sản Phẩm
-                                <input type="text" class="form-control" id="CatID" name="CatID" placeholder="Loại Sản Phẩm" value="<?= $sanpham["CatID"] ?>" required="required" data-validation-required-message="Hãy Nhập Loại Sản Phẩm" />
-                            </p>
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="control-group">
-                            <p>Mô tả sản phẩm:
-                                <input class="form-control" rows="6" id="Description" name="Description" placeholder="Mô Tả Chi Tiết Sản Phẩm" value="<?= $sanpham["Description"] ?>" required="required" data-validation-required-message="Hãy Nhập Mô Tả Chi Tiết Sản Phẩm"></input>
-                            </p>
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="control-group">
-                            <p>Đơn Giá:
-                                <input type="int" class="form-control" id="Price" name="Price" placeholder="Đơn Giá (đơn vị :đ)" value="<?= $sanpham["Price"] ?>" required="required" data-validation-required-message="Phải Nhập Đơn Giá" />
-                            </p>
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="control-group">
-                            <p>Hình Ảnh Sản Phẩm
-                                <input type="text" class="form-control" id="ProImage" name="ProImage" placeholder="Hình Ảnh sản Phẩm" value="<?= $sanpham["ProImage"] ?>" required="required" data-validation-required-message="" />
-                            </p>
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="control-group">
-                            <p>Trạng thái
-                                <input type="text" class="form-control" id="status" name="status" placeholder="Trạng Thái" value="<?= $sanpham["status"] ?>" required="required" data-validation-required-message="" />
-                            </p>
-                            <p class="help-block text-danger"></p>
-                        </div>
+
                         <div>
                             <button class="btn btn-primary py-2 px-4" type="submit" id="suaDuLieu" name="suaDuLieu">
                                 Sửa Dữ Liệu</button>

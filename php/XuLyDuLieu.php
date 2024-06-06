@@ -1,19 +1,26 @@
 <?php
 require("lib.php");
 //lấy dữ liệu từ form gửi tới
-$tbname = 'book';
-$masp = $_REQUEST['masanpham'];
-$tensp = $_REQUEST['tensanpham'];
-$loaisp = $_REQUEST['loaisanpham'];
-$mota = $_REQUEST["motasanpham"];
-$dongia = $_REQUEST["dongia"];
-$image = $_REQUEST["imageurl"];
-$soluong = $_REQUEST["soluong"];
-//$image = UploadFile("image1", "Hinhanh");
+if ($_REQUEST['table'] == 'tbProduct') {
+    $tbname = $_REQUEST['table'];
+    $tensp = $_REQUEST['ProName'];
+    $image = $_REQUEST["ProImage"];
+    $dongia = $_REQUEST["Price"];
+    $mota = $_REQUEST["Description"];
+    $loaisp = $_REQUEST['CatID'];
+    //$image = UploadFile("image1", "Hinhanh");
 
-$ketqua = insertData($tbname,$masp, $tensp,$loaisp,$mota,$dongia,$image,$soluong);
-if($ketqua==TRUE)
-    echo "<H3>thành công</h3>";
-else
-echo "<H3>Lỗi thêm dũ liệu</h3>";
-?>
+    $ketqua = insertData($tbname, $tensp, $image, $dongia, $mota, $loaisp);
+    if ($ketqua == TRUE)
+        echo "<H3>thành công</h3>";
+    else
+        echo "<H3>Lỗi thêm dũ liệu</h3>";
+} else if ($_REQUEST['table'] == 'tbCategory') {
+    $tbname = $_REQUEST['table'];
+    $nhomsp = $_REQUEST['CatName'];
+    $ketqua = insertCategoryData($tbname, $nhomsp);
+    if ($ketqua == TRUE)
+        echo "<H3>thành công</h3>";
+    else
+        echo "<H3>Lỗi thêm dũ liệu</h3>";
+}

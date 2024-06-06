@@ -1,7 +1,7 @@
 <?php
 require("lib.php");
 $id = $_REQUEST["id"];
-$tbname = "tbProduct";
+$tbname = "tbCategory";
 $ketqua = deleteData($id, $tbname);
 if ($ketqua == TRUE)
     echo "<H3>thành công</h3>";
